@@ -28,7 +28,10 @@
                     <a class="nav-link" href="{{ route('main') }}">Main</a>
                 </li>
                 <li class="nav-item {{ $active === 'Hero' ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('hero') }}">Heroes</a>
+                    <a class="nav-link" href="{{ route('index_hero') }}">Heroes</a>
+                </li>
+                <li class="nav-item {{ $active === 'Item' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('index_item') }}">Items</a>
                 </li>
                 <li class="nav-item {{ $active === 'Checkpoint' ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('checkpoint') }}">Checkpoint 1</a>

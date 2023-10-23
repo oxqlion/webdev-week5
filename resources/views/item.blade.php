@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-5 d-flex flex-column justify-content-end row">
         <div class="col">
-            <a href="{{ route('add_hero') }}" class="btn btn-primary">Add New Hero</a>
+            <a href="{{ route('add_item') }}" class="btn btn-primary">Add New Item</a>
         </div>
         <table class="table m-3">
             <thead class="thead-light">
@@ -15,11 +15,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($heroes as $hero)
+                @foreach ($items as $item)
                     <tr>
-                        <th>{{ $hero->id }}</th>
-                        <td>{{ $hero->name }}</td>
-                        <td>{{ $hero->role }}</td>
+                        <th>{{ $item->id }}</th>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->damage }}</td>
                         <td>
                             <div class="d-flex">
                                 <x-delete_btn></x-delete_btn>

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\HeroController;
+use App\Http\Controllers\ItemController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,20 +18,27 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main', ['active' => 'Main']);
 });
 
 Route::get('/main', function () {
     return view('main', ['active' => 'Main']);
 })->name('main');
 
-Route::get('/heroes', function () {
-    return view('hero', ['active' => 'Hero']);
-})->name('hero');
+Route::get('/heroes', [HeroController::class, 'index'])->name('index_hero');
+Route::get('/items', [ItemController::class, 'index'])->name('index_item');
+
+Route::get('/items', function () {
+    return view('item', ['active' => 'Item']);
+})->name('item');
 
 Route::get('/checkpoint', function () {
     return view('checkpoint', ['active' => 'Checkpoint']);
 })->name('checkpoint');
+
+Route::get('/items/create', [ItemController::class, 'create'])->name('add_item');
+Route::get('/heroes/create', [HeroController::class, 'create'])->name('add_hero');
+Route::post('/heroes', [HeroController::class, 'store'])->name('store_hero');
 
 Auth::routes();
 
